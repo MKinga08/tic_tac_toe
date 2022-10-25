@@ -9,8 +9,6 @@ def create_board():
     print("-------------")
     print("| " + board[6] + " | " + board[7] + " | " + board[8] + " | ")
 
-    
-
 def choose_symbol():
     symbol = str(input('Choose a symbol: X or O:'))
     if symbol.upper() == 'X':
