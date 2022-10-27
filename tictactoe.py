@@ -1,12 +1,11 @@
-board = ["_", "_", "_", "_", "_", "_", "_", "_", "_"]
 
 def create_board():
-
     print("| " + board[0] + " | " + board[1] + " | " + board[2] + " | ")
     print("-------------")
     print("| " + board[3] + " | " + board[4] + " | " + board[5] + " | ")
     print("-------------")
     print("| " + board[6] + " | " + board[7] + " | " + board[8] + " | ")
+
 
 def choose_symbol():
     symbol = str(input('Choose a symbol: X or O:'))
@@ -28,7 +27,6 @@ def players_choice():
 
 
 def switch_player():
-
     global choose
     if choose.upper() == "X":
         choose = "O"
@@ -53,8 +51,9 @@ def check_winner():
         return True
     return False
 
-choose = choose_symbol()
 
+board = ["_", "_", "_", "_", "_", "_", "_", "_", "_"]
+choose = choose_symbol()
 
 
 def main():
