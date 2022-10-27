@@ -1,4 +1,3 @@
-
 board = ["_", "_", "_", "_", "_", "_", "_", "_", "_"]
 
 def create_board():
@@ -39,23 +38,27 @@ def switch_player():
 
 
 def check_winner():
-    if board[0] == choose and board[1] == choose and board[2] == choose and board[0] != "-" \
-            or board[3] == choose and board[4] == choose and board[5] == choose and board[3] != "-"\
-            or board[6] == choose and board[7] == choose and board[8] == choose and board[6] != "-"\
-            or board[0] == choose and board[3] == choose and board[6] == choose and board[0] != "-"\
-            or board[1] == choose and board[4] == choose and board[7] == choose and board[1] != "-"\
-            or board[2] == choose and board[5] == choose and board[8] == choose and board[2] != "-"\
-            or board[0] == choose and board[4] == choose and board[8] == choose and board[0] != "-"\
-            or board[2] == choose and board[4] == choose and board[6] == choose and board[2] != "-":
+    if board[0] == choose and board[1] == choose and board[2] == choose \
+            or board[3] == choose and board[4] == choose and board[5] == choose \
+            or board[6] == choose and board[7] == choose and board[8] == choose \
+            or board[0] == choose and board[3] == choose and board[6] == choose \
+            or board[1] == choose and board[4] == choose and board[7] == choose \
+            or board[2] == choose and board[5] == choose and board[8] == choose \
+            or board[0] == choose and board[4] == choose and board[8] == choose \
+            or board[2] == choose and board[4] == choose and board[6] == choose:
         print("You won")
         return True
+    elif "_" not in board:
+        print("Its a draw")
+        return True
+    return False
 
 choose = choose_symbol()
 
 while True:
     create_board()
     players_choice()
-    check_winner()
+    if check_winner():
+        create_board()
+        break
     switch_player()
-
-
