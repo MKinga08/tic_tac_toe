@@ -55,10 +55,17 @@ def check_winner():
 
 choose = choose_symbol()
 
-while True:
-    create_board()
-    players_choice()
-    if check_winner():
+
+
+def main():
+    while True:
         create_board()
-        break
-    switch_player()
+        players_choice()
+        if check_winner():
+            create_board()
+            break
+        switch_player()
+
+
+if __name__ == '__main__':
+    main()
