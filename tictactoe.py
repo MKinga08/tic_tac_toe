@@ -18,12 +18,23 @@ def choose_symbol():
 
 
 def players_choice():
+
     place = int(input("Enter a number between 1-9:"))
     if 1 <= place <= 9 and board[place - 1] == '_':
         board[place-1] = choose.upper()
-    else:
+    elif 1 <= place <= 9 and board[place - 1] == choose:
         print("Position is taken")
         switch_player()
+    return place
+
+
+def is_valid(place):
+    while True:
+        if place < 1 or place > 9:
+            print("Wrong input")
+            switch_player()
+            return False
+        return True
 
 
 def switch_player():
@@ -55,11 +66,11 @@ def check_winner():
 board = ["_", "_", "_", "_", "_", "_", "_", "_", "_"]
 choose = choose_symbol()
 
-
 def main():
     while True:
         create_board()
-        players_choice()
+        position = players_choice()
+        is_valid(position)
         if check_winner():
             create_board()
             break
