@@ -1,4 +1,3 @@
-
 def create_board():
     print("| " + board[0] + " | " + board[1] + " | " + board[2] + " | ")
     print("-------------")
@@ -17,24 +16,24 @@ def choose_symbol():
         return 'O'
 
 
-def players_choice():
-
-    place = int(input("Enter a number between 1-9:"))
-    if 1 <= place <= 9 and board[place - 1] == '_':
-        board[place-1] = choose.upper()
-    elif 1 <= place <= 9 and board[place - 1] == choose:
-        print("Position is taken")
-        switch_player()
-    return place
-
-
-def is_valid(place):
+def input_validator():
     while True:
-        if place < 1 or place > 9:
-            print("Wrong input")
-            switch_player()
-            return False
-        return True
+        place = input("Enter a number between 1-9:")
+        if place.isnumeric():
+            place = int(place)
+            if place < 1 or place > 9:
+                print("Input out of range")
+            elif 1 <= place <= 9 and board[place - 1] == choose:
+                print("Position is taken")
+            else:
+                return place
+        else:
+            print("Please enter a number")
+
+
+def get_move(place):
+    if 1 <= place <= 9 and board[place - 1] == '_':
+        board[place - 1] = choose.upper()
 
 
 def switch_player():
@@ -66,11 +65,12 @@ def check_winner():
 board = ["_", "_", "_", "_", "_", "_", "_", "_", "_"]
 choose = choose_symbol()
 
+
 def main():
     while True:
         create_board()
-        position = players_choice()
-        is_valid(position)
+        position = input_validator()
+        get_move(position)
         if check_winner():
             create_board()
             break
