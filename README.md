@@ -8,9 +8,10 @@
   - Switch player function
   - Check winner function
       - checks for winner
-      - checks if its a draw
+      - checks if it's a draw
+  - Input validation
         
-## About tic tac toe itself:
+## About tic_tac_toe itself:
 
   You can find the instruction manual here: [Tic-Tac-Toe](https://en.wikipedia.org/wiki/Tic-tac-toe)
   
