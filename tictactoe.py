@@ -32,6 +32,8 @@ def choose_symbol(symbol):
 def input_validator():
     while True:
         place = input("Enter a number between 1-9:")
+        if place == 'q':
+            quit()
         if place.isnumeric():
             place = int(place)
             if place < 1 or place > 9:
