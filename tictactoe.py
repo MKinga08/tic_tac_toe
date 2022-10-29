@@ -6,12 +6,25 @@ def create_board():
     print("| " + board[6] + " | " + board[7] + " | " + board[8] + " | ")
 
 
-def choose_symbol():
-    symbol = str(input('Choose a symbol: X or O:'))
-    if symbol.upper() == 'X':
-        print('You choose: X\nyou may begin the game')
+def symbol_validator():
+    while True:
+        symbol = input('Choose a symbol: X or O:').upper()
+        if symbol.isalpha():
+            if symbol == "X":
+                return symbol
+            elif symbol == "O":
+                return symbol
+            else:
+                print("You have to choose between the given symbols")
+        else:
+            print("You have to choose the letter O or the letter X")
+
+
+def choose_symbol(symbol):
+    if symbol == 'X':
+        print('You choose: X')
         return 'X'
-    elif symbol.upper() == 'O':
+    elif symbol == 'O':
         print('You choose: O')
         return 'O'
 
@@ -63,7 +76,8 @@ def check_winner():
 
 
 board = ["_", "_", "_", "_", "_", "_", "_", "_", "_"]
-choose = choose_symbol()
+player = symbol_validator()
+choose = choose_symbol(player)
 
 
 def main():
