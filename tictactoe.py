@@ -11,22 +11,15 @@ def symbol_validator():
         symbol = input('Choose a symbol: X or O:').upper()
         if symbol.isalpha():
             if symbol == "X":
+                print('You choose: X')
                 return symbol
             elif symbol == "O":
+                print('You choose: O')
                 return symbol
             else:
                 print("You have to choose between the given symbols")
         else:
             print("You have to choose the letter O or the letter X")
-
-
-def choose_symbol(symbol):
-    if symbol == 'X':
-        print('You choose: X')
-        return 'X'
-    elif symbol == 'O':
-        print('You choose: O')
-        return 'O'
 
 
 def input_validator():
@@ -78,8 +71,7 @@ def check_winner():
 
 
 board = ["_", "_", "_", "_", "_", "_", "_", "_", "_"]
-player = symbol_validator()
-choose = choose_symbol(player)
+choose = symbol_validator()
 
 
 def main():
